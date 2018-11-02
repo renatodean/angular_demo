@@ -1,0 +1,121 @@
+@import "src/assets/scss/helper-class.scss";
+//---------------
+// ## Modal app
+//---------------
+
+.modal {
+    @include z-index(modal);
+    @include fixed($t: 0, $l: 0);
+    @include square(100%);
+    overflow: auto;
+    background: colors-app(black, 'transparent');
+    &.hide {
+        display: none;
+    }
+    &__container {
+        @include z-index(modal__container);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-height: 90%;
+        margin: auto;
+        border: 1px solid colors-app(gray, 'medium');
+        background: colors-app(white);
+        animation-duration: 0.4s;
+        animation-name: animatetop;
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__nav {
+        @include size($w:100%, $h:3rem);
+        display: flex;
+        flex: 0 0 3rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem 1rem ;
+        border-bottom: 1px solid colors-app(gray, 'medium');
+        background: colors-app(white, 'smoke');
+        > .btn--close {
+            .icon {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    &__title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: colors-app(blue, 'deep');
+    }
+    &__body {
+        overflow: hidden;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        padding: 1rem;
+    }
+    &__footer {
+        @include flex-center;
+        flex: 1 0;
+        width: 100%;
+        padding: 1rem;
+        margin-top: auto;
+        border-top: 1px solid colors-app(gray, 'light');
+        @include ie-media {
+            max-height: 4rem;
+        }
+        app-button {
+            margin-left: .5rem;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    &-size {
+        &--xl {
+             width: 90%;
+        }
+        &--l {
+             width: 80%;
+        }
+        &--m {
+            width: 75%;
+        }
+        &--s {
+             width: 50%;
+        }
+        &--xs {
+            width: 35%;
+        }
+    }
+
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -50%;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -50%;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}

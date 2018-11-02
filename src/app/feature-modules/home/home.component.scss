@@ -1,0 +1,21 @@
+.home-component-container {
+  .title {
+    color: blue;
+  }
+  .navigate {
+    &__option {
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      background-color: lightcyan;
+      &.active {
+        background-color: lightblue;
+        color: blue;
+      }
+    }
+  }
+  .chlidrens {
+    margin-top: 12px;
+  }
+}

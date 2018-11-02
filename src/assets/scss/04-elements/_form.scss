@@ -1,0 +1,281 @@
+//---------------
+// ## Form
+//---------------
+
+form,
+fieldset {
+    display: block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+
+}
+
+fieldset {
+
+}
+
+// $$ Label
+label {
+    font-size: .9rem;
+}
+
+// $$ Legend
+legend {
+
+}
+
+
+//---------------
+// ## Input
+//---------------
+input {
+	// $$ Field text
+	&[type=text] {
+		&:focus {
+		}
+		&:required {
+		}
+		&:valid {
+		}
+		&:invalid {
+		}
+		:optional {
+		}
+		&:disabled {
+		}
+		& + label {
+		}
+	}
+	// $$ Reset
+	&[type=reset] {
+		&:focus {
+		}
+		&:required {
+		}
+	}
+	// $$ Button
+	&[type=button] {
+		&:focus {
+		}
+		&:required {
+		}
+	}
+	// $$ Submit
+	&[type=submit] {
+		&:focus {
+		}
+		&:required {
+		}
+	}
+	// $$ image
+	&[type=image] {
+
+	}
+	// $$ Checkbox
+	&[type=checkbox] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+			&[for] {
+				cursor: pointer;
+			}
+		}
+	}
+	// $$ Radio
+	&[type=rario] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+			&[for] {
+				cursor: pointer;
+			}
+		}
+	}
+	// $$ Search
+	&[type=search] {
+		box-sizing: border-box;
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Date
+	&[type=date] {
+
+		&:focus {
+		}
+		& + label {
+		}
+	}
+	// $$ Datetime
+	&[type=datetime] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Date time local
+	&[type=datetime-local] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Month
+	&[type=month] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ week
+	&[type=week] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Time
+	&[type=time] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Email
+	&[type=email] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ File
+	&[type=file] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Number
+	&[type=number] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	// $$ Password
+	&[type=password] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	&[type=range] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	&[type=tel] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	&[type=url] {
+		&:focus {
+		}
+		&:required {
+		}
+		& + label {
+		}
+	}
+	&[type=color] {
+	}
+	&:disabled {
+		opacity: 0.8;
+		filter: Alpha(Opacity=80);
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		pointer-events: none;
+	}
+	&[readonly] {
+		opacity: 0.8;
+		filter: Alpha(Opacity=80);
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		pointer-events: none;
+	}
+}
+
+// $$ Textarea
+textarea {
+	resize: vertical;
+	&:focus {
+	}
+	&:required {
+	}
+	&:disabled {
+		opacity: 0.8;
+		filter: Alpha(Opacity=80);
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		pointer-events: none;
+	}
+	&[readonly] {
+		opacity: 0.8;
+		filter: Alpha(Opacity=80);
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+		pointer-events: none;
+	}
+}
+
+// $$ Button
+button {
+	&:hover {
+	}
+	&:focus {
+	}
+}
+
+// $$ Select
+select {
+	option {
+	}
+	& + label {
+
+	}
+}

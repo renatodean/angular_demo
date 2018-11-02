@@ -1,0 +1,540 @@
+/*
+* GrillaCSS Flex v1.0
+* Copyright 2017 - Dinael URDANETA
+* www.grillacss.dinael.com
+*/
+
+//---------------
+// ## display
+//---------------
+
+.block,
+.show,
+.mostrar,
+.visible {
+    display: block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.none,
+.hide,
+.ocultar,
+.invisible {
+    display: none !important;
+}
+
+// $$ Flex
+.flex {
+    display: flex !important;
+    &--no {
+        flex: none;
+    }
+    &--row {
+        display: flex;
+        flex-direction: row;
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            flex-direction: row-reverse;
+        }
+    }
+    &--column {
+        display: flex;
+        flex-direction: column;
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            flex-direction: column-reverse;
+        }
+    }
+    &--wrap {
+        flex-wrap: wrap;
+    }
+    &--nowrap {
+        flex-wrap: nowrap;
+    }
+    // $$ Grow & shrink
+    &--1-0 {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    &--0-1 {
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+    &--1-1 {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    // $$ Reverse
+    &--rev,
+    &--reverse,
+    &.rev,
+    &.reverse {
+        @extend .flex;
+        flex-direction: row-reverse;
+    }
+    // $$ Item
+    &-item {
+        &--auto,
+        &--a {
+            display: flex;
+            flex: 0 1 auto;
+        }
+        &--100 {
+            display: flex;
+            flex: 1 0 auto;
+        }
+        &--top,
+        &--t{
+            margin-bottom: auto;
+        }
+        &--right,
+        &--r {
+            margin-left: auto;
+        }
+        &--bottom {
+            margin-top: auto;
+        }
+        &--left,
+        &--l {
+            margin-right: auto;
+        }
+        // $$ Reverse
+        &--rev,
+        &--reverse,
+        &.rev,
+        &.reverse {
+            @extend .flex;
+            flex-direction: row-reverse;
+        }
+
+    }
+    // $$ Horizontal
+    &.left {
+        justify-content: flex-start;
+        &--auto {
+            margin-left: auto;
+        }
+    }
+    &.center {
+        justify-content: center;
+    }
+    &.right {
+        justify-content: flex-end;
+        &--auto {
+            margin-right: auto;
+        }
+    }
+    // $$ Vertical
+    &.top {
+        align-items: flex-end;
+        &--auto {
+            margin-top: auto;
+        }
+    }
+    &.middle {
+        align-items: center;
+    }
+    &.bottom {
+        align-items: flex-end;
+        &--auto {
+            margin-bottom: auto;
+        }
+    }
+    &.stretch {
+        align-items: stretch;
+    }
+    &.baseline {
+        align-items: baseline;
+    }
+    // $$ distribution
+    &.around {
+        justify-content: space-around;
+    }
+    &.between {
+        justify-content: space-between;
+    }
+}
+
+//---------------
+// ## Grid system
+//---------------
+.wrapper {
+    @include clearfix;
+    display: block;
+    overflow: hidden;
+    width: $desktop-100;
+    padding: 0;
+    margin: 0 auto;
+}
+
+// $$ Row
+.grid-row,
+.g-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    width: 100%;
+    // $$ Reverse
+    &.reverse,
+    &.rev,
+    &--reverse,
+    &--rev {
+        @extend .grid-row;
+        flex-direction: row-reverse;
+    }
+    &--column {
+        @extend .grid-row;
+        flex-direction: column;
+        .grid-desktop--12,
+        .g-desktop--12 {
+            width: 100%;
+            flex-basis: initial;
+        }
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            @extend .grid-row;
+            flex-direction: row-reverse;
+        }
+    }
+    &--gutter {
+        @extend .grid-row;
+        & > [class*="grid-"],
+        & > [class*="g-"] {
+            padding-left: $gutter-width;
+            padding-right: $gutter-width;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            @extend .grid-row;
+            flex-direction: row-reverse;
+        }
+        @media only screen and (max-width: $tablet-landscape) {
+            & > .grid-tablet--12,
+            .g-tablet--12,
+            .grid-tablet-portrait--12,
+            .g-tablet-portrait--12,
+            .grid-mobile--12,
+            .g-mobile--12,
+            .grid-desktop-small--12,
+            .g-desktop-small--12,
+            .grid-desktop---12,
+            .g-desktop---12 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    &.wrap {
+        flex-wrap: wrap;
+        &--no {
+            flex-wrap: nowrap;
+        }
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            flex-wrap: wrap-reverse;
+        }
+    }
+    & > [class*="grid-"],
+    & > [class*="g-"] {
+        display: flex;
+    }
+}
+
+// $$ Columns
+@for $i from 1 through $grid-cols {
+    .grid-desktop--#{$i},
+    .g-desktop--#{$i} {
+        flex-basis: ((100/$grid-cols) * $i) *1%;
+        width: ((100/$grid-cols) * $i) *1%;
+    }
+}
+
+@for $i from 1 through $grid-cols {
+    .grid-center--#{$i},
+    .g-center--#{$i} {
+        flex-basis: ((100/$grid-cols) * $i) *1%;
+        width: ((100/$grid-cols) * $i) *1%;
+        margin: 0 auto;
+    }
+}
+
+@for $i from 1 through ($grid-cols)-1 {
+    .grid-offset--#{($i)},
+    .g-offset--#{($i)} {
+        margin-left: ((100/$grid-cols) * $i) *1%;
+    }
+}
+
+// $$  Fifths / 5 columns
+.grid-fifth,
+.g-fifth {
+    flex-basis: 20%;
+    width: 20%;
+    &--center {
+        flex-basis: 20%;
+        width: 20%;
+        margin: 0 auto;
+    }
+}
+
+@for $i from 1 through 4 {
+    .grid-fifth-offset--#{($i)},
+    .g-fifth-offset--#{($i)} {
+        margin-left: 20% * ($i);
+    }
+}
+
+// $$ special behaviors
+.grid-100,
+.g-100 {
+    flex: 1 0 auto;
+}
+.grid-auto,
+.g-auto {
+    flex: 0 1 auto;
+}
+
+// $$ Direction, position and distribution
+[class*="grid-"],
+[class*="g-"] {
+    //$$ Direction
+    &.vertical {
+        flex-direction: column;
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            flex-direction: column-reverse;
+        }
+        .grid-desktop--12,
+        .g-desktop--12 {
+            flex-basis: initial;
+        }
+    }
+    &.horizontal {
+        flex-direction: row;
+        // $$ Reverse
+        &.reverse,
+        &.rev,
+        &--reverse,
+        &--rev {
+            flex-direction: row-reverse;
+        }
+    }
+    // $$ Horizontal
+    &.left {
+        justify-content: flex-start;
+        &--auto {
+            margin-left: auto;
+        }
+    }
+    &.center {
+        justify-content: center;
+    }
+    &.right {
+        justify-content: flex-end;
+        &--auto {
+            margin-right: auto;
+        }
+    }
+    // $$ Vertical
+    &.top {
+        align-items: flex-end;
+        &--auto {
+            margin-top: auto;
+        }
+    }
+    &.middle {
+        align-items: center;
+    }
+    &.bottom {
+        align-items: flex-end;
+        &--auto {
+            margin-bottom: auto;
+        }
+    }
+    &.stretch {
+        align-items: stretch;
+    }
+    &.baseline {
+        align-items: baseline;
+    }
+    //$$ distribution
+    &.around {
+        justify-content: space-around;
+    }
+    &.between {
+        justify-content: space-between;
+    }
+}
+
+// $$ show & hide by devices
+.only {
+    &--desktop {
+        display: block;
+    }
+    &--tablet,
+    &--mobile {
+        display: none;
+    }
+}
+
+.not {
+    &--desktop {
+        display: none;
+    }
+}
+
+//---------------
+// ## Media queries
+//---------------
+@media only screen and (max-width: $desktop - 1) {
+    .wrapper {
+        width: 100%;
+    }
+    @for $i from 1 through $grid-cols {
+        .grid-desktop-small--#{$i},
+        .g-desktop-small--#{$i} {
+            flex-basis: ((100/$grid-cols) * $i) *1%;
+            width: ((100/$grid-cols) * $i) *1%;
+        }
+    }
+}
+
+@media only screen and (max-width: $tablet-landscape + 1) {
+    .wrapper {
+        max-width: $tablet-landscape;
+    }
+    @for $i from 1 through $grid-cols {
+        .grid-tablet--#{$i},
+        .g-tablet--#{$i} {
+            flex-basis: ((100/$grid-cols) * $i) *1%;
+            width: ((100/$grid-cols) * $i) *1%;
+        }
+    }
+}
+
+@media only screen and (max-width: $tablet-portrait) {
+    .wrapper {
+        max-width: $tablet-portrait;
+    }
+    @for $i from 1 through $grid-cols {
+        .grid-tablet-portrait--#{$i},
+        .g-tablet-portrait--#{$i} {
+            flex-basis: ((100/$grid-cols) * $i) *1%;
+            width: ((100/$grid-cols) * $i) *1%;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-landscape) {
+    .wrapper {
+        max-width: $mobile-landscape;
+    }
+    @for $i from 1 through $grid-cols {
+        .grid-mobile--#{$i},
+        .g-mobile--#{$i} {
+            flex-basis: ((100/$grid-cols) * $i) *1%;
+            width: ((100/$grid-cols) * $i) *1%;
+        }
+    }
+}
+
+@media only screen and (min-width: 10px) and (max-width: $mobile-portrait) {
+    .wrapper {
+        max-width: 100% !important;
+    }
+    .grid-row > [class*="grid-"],
+    .g-row > [class*="g-"] {
+        flex-basis: 100%;
+        margin-left: 0 !important;
+    }
+    .grid-row--gutter > [class*="grid-"],
+    .g-row--gutter > [class*="g-"] {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+    @for $i from 1 through ($grid-cols) {
+        .mobile-grid--#{$i},
+        .mobile-g--#{$i} {
+            flex-basis: ((100/$grid-cols) * $i) *1% !important;
+        }
+    }
+}
+
+@media only screen and (max-width: $desktop - 1) {
+    .not {
+        &--desktop-small {
+            display: none !important;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-portrait - 1) and (max-width: $tablet-landscape) {
+    .only {
+        &--desktop {
+            display: none !important;
+        }
+        &--tablet {
+            display: block !important;
+        }
+    }
+    .not {
+        &--tablet {
+            display: none !important;
+        }
+
+        &--desktop {
+            display: block !important;
+        }
+    }
+}
+
+@media only screen and (max-width: $tablet-portrait - 1) {
+    .only {
+        &--mobile {
+            display: block;
+        }
+        &--desktop {
+            display: none;
+        }
+        &--tablet {
+            display: none !important;
+        }
+    }
+    .not {
+        &--mobile {
+            display: none !important;
+        }
+        &--desktop {
+            display: block !important;
+        }
+    }
+}
+
+

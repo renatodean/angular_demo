@@ -1,0 +1,11 @@
+<!-- Copyright 2017 20** Santillana SA -->
+<div class="home-component-container">
+  <h2 class="title">Home component - Bienvenidos!</h2>
+  <div class="navigate">
+    <a (click)="setActiveProducts(true)" class="navigate__option" [ngClass]="[activeProducts ? 'active' : '']">Productos</a>
+    <a (click)="setActiveProducts(false)" class="navigate__option" [ngClass]="[!activeProducts ? 'active' : '']">Usuarios</a>
+  </div>
+  <div class="chlidrens">
+    <router-outlet></router-outlet>
+  </div>
+</div>

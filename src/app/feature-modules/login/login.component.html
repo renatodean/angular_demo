@@ -1,0 +1,30 @@
+<app-alert [showAlert]="showAlertText" [type]="typeAlert" [alertText]="alertTextParam"></app-alert>
+
+<section class="login-component">
+    <article class="login__container grid-desktop--4 grid-desktop-small--6 grid-tablet--7" role="article">
+        <header class="login__header">
+            <div class="login__logo">
+                <img src="assets/img/logo-santillana.svg" alt="Santillana" class="img--responsive">
+            </div>
+        </header>
+        <form action="" class="login__form">
+            <div class="block w--100" role="form">
+                <app-input-text class="grid-desktop--12 space--1"
+                                [name]="'Email'"
+                                [(valueInput)]="user.email"
+                                (keyup.enter)="login(user);">
+                </app-input-text>
+                <app-input-password class="grid-desktop--12 space--1"
+                                    [name]="'Contraseña'"
+                                    [(valueInput)]="user.password"
+                                    (keyup.enter)="login(user);">
+                </app-input-password>
+                <app-button class="flex center space--2 space-t--1"
+                            (click)="login(user)"
+                            [kind]="'main'"
+                            [name]="'Entrar'">
+                </app-button>
+            </div>
+        </form>
+    </article>
+</section>

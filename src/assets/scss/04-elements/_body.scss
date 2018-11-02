@@ -1,0 +1,22 @@
+//---------------
+// ## Body
+//---------------
+
+body {
+    height: 100%;//falback
+    height: 100vh;
+    overflow: hidden;//falback
+	overflow-x: hidden;
+	background: colors-app(white, 'smoke');
+}
+
+//---------------
+// ## Footer fix
+//---------------
+
+body.footer--fix {
+	padding-bottom: $height-footer;
+	footer {
+		@include footer--fix;
+	}
+}

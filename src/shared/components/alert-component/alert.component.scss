@@ -1,0 +1,77 @@
+@import "src/assets/scss/helper-class.scss";
+
+.alert-component {
+    @include z-index(alert);
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: .8rem;
+    color: colors-app(gray, "text");
+    background: colors-app(white);
+    -webkit-box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+    box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+    .alert {
+        //Prefix
+        &__title {
+            display: flex;
+            width: 100%;
+            font-size: .9rem;
+            font-weight: 600;
+            padding-bottom: .5rem;
+        }
+        &__description {
+            text-align: center;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+    }
+    .btn--close {
+        @include absolute($t: .9rem, $r: 1rem);
+        display: flex;
+        padding: .25rem;
+        color: colors-app(gray, "text");
+        cursor: pointer;
+        transition: all .3s ease;
+        &:hover {
+            background: darken (#{colors-app(white)}, 10%);
+        }
+    }
+    //$$ status
+    &.error {
+        color: colors-app(white);
+        background: colors-app(fuchsia);
+        .btn--close {
+            color: colors-app(white);
+            transition: all .3s ease;
+            &:hover {
+                background: darken (#{colors-app(fuchsia)}, 10%);
+            }
+        }
+    }
+    &.approved {
+        color: colors-app(white);
+        background: colors-app(green);
+        .btn--close {
+            color: colors-app(white);
+            transition: all .3s ease;
+            &:hover {
+                background: darken (#{colors-app(green)}, 10%);
+            }
+        }
+    }
+    &.info {
+        color: colors-app(white);
+        background: colors-app(blue);
+        .btn--close {
+            color: colors-app(white);
+            transition: all .3s ease;
+            &:hover {
+                background: darken (#{colors-app(blue)}, 10%);
+            }
+        }
+    }
+}

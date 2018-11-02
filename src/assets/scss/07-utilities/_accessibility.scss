@@ -1,0 +1,71 @@
+//---------------
+// ## Accessibility
+//----------------
+
+[hidden] {
+	display: none;
+}
+
+//Screen reader only
+.screen-reader-only,
+.visually-hidden,
+.skiplink {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	margin: -1px;
+}
+
+:focus.skiplink {
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: auto;
+	clip: auto;
+	// some explicit visual styles
+	display: block;
+	background: transparent;
+	color: #000;
+	text-decoration: underline;
+	padding: 1em;
+}
+
+a[href],
+area[href],
+input:not([disabled]),
+select:not([disabled]),
+textarea:not([disabled]),
+button:not([disabled]),
+iframe,
+[tabindex],
+[contentEditable="true"] {
+	&:not([tabindex='-1']) {
+		/* your SCSS for focusable elements goes here */
+	}
+}
+
+//Icon Aria hidden
+[aria-hidden="true"] {
+	//visibility: hidden;
+}
+
+[role="button"] {
+	cursor: pointer
+}
+
+.icon:not([aria-hidden="true"]) {
+	border: 2px dashed red !important;
+	background: darkblue !important;
+}
+
+//All images whit 'alt' attribute, don't forgot
+img[alt=''],
+img[alt=""] {
+	border: 2px dashed blue !important;
+}

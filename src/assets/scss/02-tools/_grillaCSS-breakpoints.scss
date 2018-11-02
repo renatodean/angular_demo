@@ -1,0 +1,225 @@
+/*
+* GrillaCSS v2.0
+* Copyright 2017 - Dinael URDANETA
+* www.grillacss.dinael.com
+*/
+
+//---------------
+// ## Breakpoints
+//---------------
+
+@mixin mobile {
+	@media screen and (max-width: $mobile-portrait - 1px) {
+		@content;
+	}
+}
+
+@mixin mobile-landscape {
+	@media screen and (min-width: $mobile-portrait)  {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: $tablet-portrait)  {
+		@content;
+	}
+}
+
+@mixin tablet-landscape {
+	@media screen and (max-width: $tablet-landscape) {
+		@content;
+	}
+}
+
+@mixin desktop-small {
+    @media screen and (max-width: $desktop-small) {
+        @content;
+    }
+}
+
+@mixin desktop {
+	@media screen and (min-width: $tablet-landscape + 1px) {
+		@content;
+	}
+}
+
+//---------------
+// ## Browser
+//---------------
+
+// $$ Internet Explorer
+// $$ IE ≥ 11
+@mixin ie-media {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+// $$ IE ≥ 9
+// $$ Deprecate
+@mixin ie9-media {
+    @media screen and (min-width:0\0) {
+        @content
+    }
+}
+
+// Edge
+@mixin edge-media {
+    @media screen {
+        @media (min-width: 0px) {
+            @content;
+        }
+    }
+}
+
+@mixin edge-selector($selector){
+    _:-ms-lang(x),_:-webkit-full-screen, #{"."+"#{$selector}"} {
+        @content;
+    }
+}
+// Usage:
+// @include only_ie9( '.my_element', (color: red))
+
+
+// Firefox ≥ 3
+@mixin ff-3 {
+    @media \0 all {
+        @content;
+    }
+}
+
+// Firefox ≥ 3.6
+@mixin ff3-6-media {
+    @media screen and (-moz-images-in-menus:0) {
+        @content;
+    }
+}
+
+// Firefox ≥ 4
+@mixin ff4-media {
+    @media screen and (min--moz-device-pixel-ratio:0) {
+        @content;
+    }
+}
+
+// Firefox ≥ 8
+@mixin ff8-media {
+    @media all and (min--moz-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+        @content;
+    }
+    @media all and (-moz-images-in-menus:0) and (min-resolution: .001dpcm) {
+        @content;
+    }
+}
+
+// Firefox ≥ 11
+@mixin ff11-media {
+    @media all and (min--moz-device-pixel-ratio: 0) {
+        @media (min-width: 0px) {
+            @content;
+        }
+    }
+    @media all and (-moz-images-in-menus: 0) {
+        @media (min-width: 0px) {
+            @content;
+        }
+    }
+}
+// Firefox ≥ 29
+@mixin ff29-media {
+    @media all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm) {
+        @content;
+    }
+}
+
+//---------------
+// ## Print
+//---------------
+
+@mixin print {
+	@media print {
+		*,
+		*:before,
+		*::after,
+		*:first-letter,
+		p:first-line,
+		div:first-line,
+		blockquote:first-line,
+		li:first-line {
+			background: transparent !important;
+			color: #000 !important;
+			box-shadow: none !important;
+			text-shadow: none !important;
+		}
+		a,
+		a:visited {
+			text-decoration: underline;
+		}
+		a[href]::after {
+			content: " (" attr(href) ")";
+		}
+		abbr[title]:after {
+			content: " (" attr(title) ")";
+		}
+		a[href^="#"]::after,
+		a[href^="javascript:"]::after {
+			content: "";
+		}
+		pre {
+			white-space: pre-wrap !important;
+		}
+		pre,
+		blockquote {
+			border: 1px solid #999;
+			page-break-inside: avoid;
+		}
+		thead {
+			display: table-header-group;
+		}
+		tr,
+		img {
+			page-break-inside: avoid;
+		}
+		p,
+		h2,
+		h3 {
+			orphans: 3;
+			widows: 3;
+		}
+		h2,
+		h3 {
+			page-break-after: avoid;
+		}
+		@content;
+	}
+}
+
+@mixin print-simple {
+    @media print {
+        @content;
+    }
+}
+
+
+//---------------
+// ## Others
+//---------------
+
+@mixin retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin aural {
+    @media aural {
+        @content;
+    }
+}
+

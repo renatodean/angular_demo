@@ -1,0 +1,435 @@
+//---------------
+// ## Utilities
+//---------------
+
+.clearfix {
+    @include clearfix;
+}
+
+.img--responsive {
+    width: 100%;
+    height: auto;
+}
+
+//---------------
+// ## space flow
+//---------------
+
+// .space-1, ... , .space-4
+.space {
+    @for $i from 1 through 4 {
+        $value: $i;
+        &--#{$value} {
+            padding-bottom: ($i) * 1rem;
+        }
+        &--half {
+            padding-bottom: .5rem;
+        }
+    }
+    &-no {
+        padding-bottom: 0 !important;
+    }
+    &-v,
+    &-ver {
+        // .space-v-1, ... , .space-v-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding-bottom: ($i) * 1rem;
+                padding-top: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding-bottom: .5rem;
+            padding-top: .5rem;
+        }
+        &-no {
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+    }
+    &-h,
+    &-hor {
+        // .space-h-1, ... , .space-h-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding-left: ($i) * 1rem;
+                padding-right: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+        &-no {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    &-l,
+    &-left {
+        // .space-l-1, ... , .space-l-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding-left: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding-left: .5rem;
+        }
+        &-no {
+            padding-left: 0 !important;
+        }
+    }
+    &-r,
+    &-right {
+        // .space-r-1, ... , .space-r-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding-right: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding-right: .5rem;
+        }
+        &-no {
+            padding-right: 0 !important;
+        }
+    }
+    &-t,
+    &-top {
+        // .space-r-1, ... , .space-r-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding-top: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding-top: .5rem;
+        }
+        &-no {
+            padding-top: 0 !important;
+        }
+    }
+    &-set {
+        // .space-set-1, ... , .space-set-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                padding: ($i) * 1rem;
+            }
+        }
+        &--half {
+            padding: .5rem;
+        }
+        &-no {
+            padding: 0 0 0 0 !important;
+        }
+    }
+}
+
+//---------------
+// ## Margin flow
+//---------------
+
+// .margin-1, ... , .margin-4
+.margin {
+    @for $i from 1 through 4 {
+        $value: $i;
+        &--#{$value} {
+            margin-bottom: ($i) * 1rem;
+        }
+        &--half {
+            margin-bottom: .5rem;
+        }
+    }
+    &-no {
+        margin-bottom: 0 !important;
+    }
+    &-v,
+    &-ver {
+        // .space-v-1, ... , .space-v-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin-bottom: ($i) * 1rem;
+                margin-top: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin-bottom: .5rem;
+            margin-top: .5rem;
+        }
+        &-no {
+            margin-bottom: 0 !important;
+            margin-top: 0 !important;
+        }
+    }
+    &-h,
+    &-hor {
+        // .space-h-1, ... , .space-h-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin-left: ($i) * 1rem;
+                margin-right: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin-left: .5rem;
+            margin-right: .5rem;
+        }
+        &-no {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
+    &-l,
+    &-left {
+        // .space-l-1, ... , .space-l-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin-left: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin-left: .5rem;
+        }
+        &-no {
+            margin-left: 0 !important;
+        }
+    }
+    &-r,
+    &-right {
+        // .space-r-1, ... , .space-r-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin-right: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin-right: .5rem;
+        }
+        &-no {
+            margin-right: 0 !important;
+        }
+    }
+    &-t,
+    &-top {
+        // .space-r-1, ... , .space-r-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin-top: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin-top: .5rem;
+        }
+        &-no {
+            margin-top: 0 !important;
+        }
+    }
+    &-set {
+        // .space-set-1, ... , .space-set-4
+        @for $i from 1 through 4 {
+            $value: $i;
+            &--#{$value} {
+                margin: ($i) * 1rem;
+            }
+        }
+        &--half {
+            margin: .5rem;
+        }
+        &-no {
+            margin: 0 0 0 0 !important;
+        }
+    }
+}
+
+
+
+
+//---------------
+// ## Size
+//---------------
+
+// $$ width | percentage of 5 in 5 to 100%
+.w {
+    @for $i from 1 through $percentage-w-end {
+        $valor: ($percentage-w * $i);
+        @if $valor < 10 {
+            &--0#{$valor} {
+                width: unquote(($percentage-w * $i) + '%');
+            }
+        } @else {
+            @if $valor < 100 or $valor > 100 {
+                &--#{$valor} {
+                    width: unquote(($percentage-w * $i) + '%');
+                }
+            }
+        }
+    }
+    &--100 {
+        width: 100%;
+    }
+    &--auto {
+        width: auto;
+    }
+    &--inherit {
+        width: inherit !important;
+    }
+    &--initial {
+        width: initial !important;
+    }
+}
+// $$ height | percentage of 5 in 5 to 100%
+.h {
+    @for $i from 1 through $percentage-h-end {
+        $valor: ($percentage-h * $i);
+        @if $valor < 10 {
+            &--0#{$valor} {
+                height: unquote(($percentage-h * $i) + '%');
+            }
+        } @else {
+            @if $valor < 100 or $valor > 100 {
+                &--#{$valor} {
+                    height: unquote(($percentage-h * $i) + '%');
+                }
+            }
+        }
+    }
+    &--100 {
+        height: 100%;
+    }
+    &--auto {
+        height: auto;
+    }
+}
+//---------------
+// ## Position
+//---------------
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+
+//---------------
+// ## Scroll
+//---------------
+.scroll {
+    overflow: hidden;
+    overflow-y: auto;
+    &--set {
+        overflow: auto;
+    }
+    &--y {
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    &--x {
+        overflow: hidden;
+        overflow-x: auto;
+    }
+}
+
+//---------------
+// ## Cursor
+//---------------
+.pointer {
+    cursor: pointer;
+}
+
+.grab {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: -o-grab;
+    cursor: -ms-grab;
+    cursor: grab;
+}
+
+//---------------
+// ## Separator and borders
+//---------------
+
+.sep,
+.separator  {
+    &:after {
+        content: " ";
+        display: block;
+        height: 1rem;
+        border-bottom: $border-default;
+    }
+}
+
+.border {
+    &--set {
+        border: $border-default;
+    }
+    &--t,
+    &--top {
+        border-top: $border-default;
+    }
+    &--r,
+    &--right {
+        border-right: $border-default
+    }
+    &--b,
+    &--bottom {
+        border-bottom: $border-default;
+    }
+    &--l,
+    &--left {
+        border-left: $border-default;
+    }
+}
+
+//---------------
+// ## Text utilities
+//---------------
+.txt-hide {
+    overflow: hidden;
+    padding: 0; /* 1 */
+    text-indent: 101%;
+    white-space: nowrap;
+}
+
+.colon {
+    &:after {
+        content: ":";
+    }
+}
+
+.semi-colon {
+    &:after {
+        content: ";";
+    }
+}
+
+//---------------
+// ## Background
+//---------------
+
+.bg {
+    &--whitesmoke{
+        background: colors-app(white, 'smoke');
+    }
+}

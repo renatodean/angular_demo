@@ -1,0 +1,130 @@
+//---------------
+// ## Root
+//---------------
+html {
+	font-size: $unit-app;
+}
+
+body {
+	font-family: $font-family-app;
+	font-weight: normal;
+	color: colors-app(gray , "text")
+}
+//---------------
+// ## Phrasing content tags
+//---------------
+
+// $$ block-level 04-elements
+p {
+    font-size: .9rem;
+	line-height: 120%;
+    &.paragraph {
+        padding-bottom: 1rem;
+    }
+}
+
+
+blockquote {
+
+}
+
+code {
+
+}
+
+// $$ Structured-text 04-elements
+b {
+	font-weight: bold;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+
+}
+
+i {
+	font-style: italic;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr {
+
+}
+
+dfn {
+
+}
+
+mark {
+
+}
+
+var {
+
+}
+
+samp {
+
+}
+
+big {
+	font-size: 120%;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+mark {
+
+}
+
+q {
+
+}
+
+samp {
+
+}
+
+time {
+
+}
+
+ruby {
+
+}
+
+bdo {
+
+}
+
+var {
+
+}
+
+wbr {
+
+}

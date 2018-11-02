@@ -1,0 +1,274 @@
+//---------------
+//## Mixins
+//---------------
+
+// $$ Flex
+@mixin flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@mixin flex-column-center {
+    @include flex-center;
+    flex-direction: column;
+}
+
+@mixin border-radius($radius: null) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;
+}
+// Usage:
+// border-radius(5rem)
+
+// $$ Clearfix
+@mixin clearfix() {
+    zoom: 1;
+    &:before {
+        content: "";
+        display: table;
+    }
+    &:after {
+        content: " ";
+        display: table;
+        visibility: hidden;
+        clear: both;
+        font-size: 0;
+        height: 0;
+    }
+}
+// Usage:
+// @include clearfix;
+
+@mixin bottom--fix {
+    position: fixed;
+    bottom: 0;
+    margin: auto 0 0 0;
+}
+// Usage:
+// @include bottom--fix;
+
+@mixin footer--fix {
+    width: 100%;
+    @include bottom--fix;
+    height: $height-footer;
+    margin: - $height-footer auto 0; /*footer height*/
+}
+// Usage:
+// @include footer--fix;
+
+//----------------
+// ## Images
+//----------------
+
+@mixin img--rwd {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+}
+// Usage:
+// @include img--rwd
+
+//----------------
+// ## Show and hide
+//----------------
+
+// $$ hide
+@mixin hide {
+    display: none;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+// Usage:
+// @include hide;
+
+//----------------
+// ## Size
+//----------------
+
+// $$ size - tamaño ancho y alto
+@mixin size($w: null, $h: null) {
+    width: $w;
+    height: $h;
+}
+// Usage:
+// @include size(4px, 2px);
+
+// $$ min-size
+@mixin min-size($mw: null, $mh: null) {
+    min-width: $mw;
+    min-height: $mh;
+}
+// Usage:
+// @include min-size(4px, 2px);
+
+// $$ square
+@mixin square($s: null) {
+    @include size ($w: $s, $h: $s)
+}
+// Usage:
+// @include square(1rem);
+
+@mixin min-square($s: null) {
+    @include min-size ($w: $s, $h: $s)
+}
+// Usage:
+// @include min-square(3rem);
+
+// $$ circle
+@mixin circle($size: null) {
+    @include square($size);
+    border-radius: px(16rem);
+}
+// Usage:
+// @include circle(3rem);
+
+//----------------
+// ## Text
+//----------------
+
+@mixin txt-hide {
+    overflow: hidden;
+    padding: 0; /* 1 */
+    text-indent: 101%;
+    white-space: nowrap;
+}
+// Usage:
+// @include text-hide;
+
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+//----------------
+// ## Position
+//----------------
+
+// $$ Relative
+@mixin relative($t: null, $r:null, $b:null, $l:null) {
+    position: relative;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+// Usage:
+// @include relative(t: 1rem, $l:0);
+
+// $$ Absolute
+@mixin absolute($t: null, $r:null, $b:null, $l:null) {
+    position: absolute;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+// Usage:
+// @include absolute(b: 1rem, $r:0);
+
+// $$ Fixed
+@mixin fixed($t: null, $r:null, $b:null, $l:null) {
+    position: fixed;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+// Usage:
+// @include fixed(t: 0, $r:1rem);
+
+//----------------
+// ## Z-index
+//----------------
+
+@mixin z-index($value) {
+    @if type-of($value) == 'number' {
+        z-index: ($value);
+    } @else if type-of($value) == 'string' {
+        z-index: z-index($value);
+    }
+}
+// Usage:
+// @include z-index(navigation); or // @include z-index(900);
+
+//----------------
+// ## Shadows
+//----------------
+
+@mixin shadow($ShadowType: null) {
+    @if $ShadowType == soft {
+        -webkit-box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+        box-shadow: 0 .25rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+    }
+    @if $ShadowType == medium {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+        -webkit-box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .3);
+        -moz-box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .3);
+    }
+    @if $ShadowType == hard {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .5);
+        -moz-box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .5);
+    }
+    @if $ShadowType == hover {
+        -webkit-box-shadow: 0 .5rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0 .5rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+        box-shadow: 0 .4rem 1rem -.5rem rgba(0, 0, 0, 0.75);
+    }
+}
+// Usage:
+// @include shadow(soft);
+
+// $$ Text-shadow
+@mixin text-shadow($shadow...) {
+    $shadow: if(length($shadow) > 0, $shadow, default);
+    $default: -compass-space-list(compact($default-text-shadow-h-offset $default-text-shadow-v-offset $default-text-shadow-blur $default-text-shadow-spread $default-text-shadow-color));
+    $shadows-without-spread: join((), (), comma);
+    $shadows: join((), (), comma);
+    $has-spread: false;
+    @each $layer in $shadow {
+        $layer: if($layer == "default", $default, $layer);
+        @if length($layer) > 4 {
+            $has-spread: true;
+            $shadows-without-spread: append($shadows-without-spread, nth($layer, 1) nth($layer, 2) nth($layer, 3) nth($layer, 5));
+            $shadows: append($shadows, $layer);
+        } @else {
+            $shadows-without-spread: append($shadows-without-spread, $layer);
+            $shadows: append($shadows, $layer);
+        }
+    }
+    @if $has-spread {
+        text-shadow: $shadows-without-spread;
+    }
+    text-shadow: $shadows;
+}
+
+//----------------
+// ## Test
+//----------------
+
+@mixin test-ui {
+    border: 3px dashed deeppink !important;
+    background: greenyellow !important;
+}

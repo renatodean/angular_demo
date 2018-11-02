@@ -1,0 +1,93 @@
+//---------------
+// ## Functions
+//---------------
+
+// ## Units convert
+@function decimal-round($number, $digits: 0, $mode: round) {
+    $n: 2;
+    @if type-of($number) != number {
+        @warn '#{$number} is not a number.';
+        @return $number;
+    }
+    @if type-of($digits) != number {
+        @warn '#{$digits} is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{$digits} has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{$mode} is undefined keyword.';
+        @return $number;
+    }
+}
+
+@function strip-unit($numero) {
+    @if type-of($numero) == 'number' and not unitless($numero) {
+        $result: $numero / ($numero * 0 + 1);
+        @return $result;
+    }
+}
+
+// $$ rem to px
+@function px($valor) {
+    $unidad: unit($valor);
+    $numero: strip-unit($valor);
+    @if ($unidad == "rem") {
+        @return round($numero * $unit) * 1px;
+    }
+    @if ($unidad == "em") {
+        @return $valor
+    }
+    @error "falta la unidad";
+}
+// Usage:
+// margin: rem(12px);
+
+// $$ px to rem
+@function rem($valor) {
+    $unidad: unit($valor);
+    $numero: strip-unit($valor);
+    $result: decimal-round($numero / $unit) * 1rem;
+    @return $result;
+}
+// Usage:
+// margin: px(2em) rem(12px) px(3rem) 10px;
+
+// $$ Rule of three to calc the percentage.
+@function calc-percent($target, $container) {
+    $result: ($target / $container) *100%;
+    @return $result;
+}
+// Usage: ** Use always the same unit (px, em, rem or %)
+// height: calc-percent(20px, 470px); or height: calc-percent(20px, $height-test);
+
+// $$ Color map
+@function colors-app($tone, $shade: default) {
+    $swatchMap: map-get($color-swatches, $tone);
+    $result: map-get($swatchMap, $shade);
+    @return $result;
+    @error "el color no existe";
+}
+// Usage:
+// background: colors-app(blue, "dark");
+
+// $$ Z-index map
+@function z-index($value) {
+    $result: map-get($z-index, $value);
+    @return $result;
+    @error "nombre de valor no existe";
+}
+// Usage:
+// z-index: z-index(navigation);
+// ** Use the z-index mixin you can see in the path 02-tool/mixins.scss
+//    @include z-index(navigation);

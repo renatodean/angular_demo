@@ -1,0 +1,120 @@
+//---------------
+// ## Links
+//---------------
+a {
+    cursor: pointer;
+    color: colors-app(blue, "deep");
+    &:link {
+        /*text-decoration:underline;*/
+    }
+    &:hover {
+        color: colors-app(blue, "dark");
+    }
+
+    &:active {
+
+    }
+
+    &:visited {
+
+        &:hover {
+
+        }
+    }
+    &.btn  {
+        @include border-radius(.25rem);
+        font-size: .9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $font-family-secondary;
+        text-transform: uppercase;
+        max-height: 2.5rem;
+        padding: .75rem 1rem;
+        color: colors-app(white);
+        background: colors-app(blue, "deep");
+        &:hover {
+            transition: background-color .3s ease;
+            background: colors-app(blue, "dark");
+        }
+        &:disabled {
+            color: colors-app(gray, 'text') !important;
+            background: colors-app(gray, 'medium') !important;
+            cursor: default;
+            pointer-events: none;
+        }
+        &--search {
+            padding: 0 1rem;
+            .btn-component__text {
+            }
+        }
+        &--main {
+            color: colors-app(white);
+            background: colors-app(blue, "deep");
+            &:hover {
+                transition: background-color .3s ease;
+                background: colors-app(blue, "dark");
+            }
+        }
+        &--accept {
+            color: colors-app(white);
+            background: colors-app(green);
+            &:hover {
+                transition: background-color .3s ease;
+                background: colors-app(green, "dark");
+            }
+        }
+        &--cancel {
+            color: colors-app(white);
+            background: colors-app(fuchsia);
+            &:hover {
+                transition: background-color .3s ease;
+                background: colors-app(fuchsia, "dark");
+            }
+        }
+        &--ghost {
+            color: colors-app(gray, 'text');
+            border: 1px solid colors-app(gray, 'text');
+            background: colors-app(white);
+            &:hover {
+                transition: all .3s ease;
+                color: colors-app(white);
+                background: colors-app(gray, 'text');
+            }
+        }
+        &--disabled {
+            color: colors-app(gray, 'text');
+            background: colors-app(gray, 'medium');
+            cursor: default;
+            pointer-events: none;
+        }
+        &--back {
+            @include circle(1.5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid colors-app(blue, 'deep');
+            &:hover {
+                transition: all .3s ease;
+                color: colors-app(white);
+                background: colors-app(blue, "deep");
+            }
+            .icon {
+                font-size: .9rem;
+            }
+        }
+        &.icon{
+            &--left {
+                .icon {
+                    margin-right: .25rem;
+                }
+            }
+            &--right {
+                .icon {
+                    margin-left: .25rem;
+                }
+            }
+        }
+    }
+}
+

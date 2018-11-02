@@ -1,0 +1,47 @@
+/*
+* GrillaCSS v2.0
+* Copyright 2017 - Dinael URDANETA
+* www.grillacss.dinael.com
+*/
+
+//---------------
+// ## DESKTOP MEASURE
+//---------------
+// January 2018:
+// 1920x1080 - 18%
+// 1366x768	- 34%
+// 1280x1024 - 4%
+// 1280x800 - 3%
+// 1024x768	- 2%
+// Lower - 6.1%
+
+// More information:
+// https://www.w3schools.com/browsers/browsers_display.asp
+// http://screensiz.es
+
+//---------------
+// ## Root unit
+//---------------
+$unit:         16;
+$unit-app:     $unit * 1px;
+$gutter-width: $unit-app/2;
+
+// $$ Desktop screen resolution
+$screen-full:     100%;
+$screen-standard: 1200px; //save measure
+$screen-s:        960px;
+$screen-m:        1300px;
+$screen-l:        1800px;
+
+//---------------
+// ## Grid and Responsive
+//---------------
+$grid-cols:             12;
+$desktop:               $screen-standard;
+$desktop-small:         800px;
+$desktop-100:           100%;
+$tablet-landscape:      1024px;
+$tablet-portrait:       768px;
+$mobile-landscape:      550px;
+$mobile-portrait:       400px;
+$mobile-portrait-small: 320px;

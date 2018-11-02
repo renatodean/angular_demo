@@ -1,0 +1,21 @@
+//---------------
+// ## Main layout
+//---------------
+
+.main {
+    //prefix
+    &__container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        height: 100%; //falback
+        height: calc(100vh - #{px($height-header)});
+        @media only screen and (max-width: 1200px) {
+            padding-bottom: 5rem;
+        }
+        main {
+            flex: 1;
+        }
+    }
+}
+

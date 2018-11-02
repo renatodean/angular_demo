@@ -1,0 +1,13 @@
+<!-- Copyright 2017 20** Santillana SA -->
+<span class="input-text-component {{input.invalid && (input.dirty || input.touched) ? 'error' : ''}}">
+  <label for="inputText"></label>
+  <input id="inputText" type="text" [(ngModel)]="valueInput" #input="ngModel"
+  	(ngModelChange)="update($event)" autocomplete="off" [attr.required]="isRequired" [required]="isRequired"
+  	[disabled]="isDisabled"/>
+  <label class="input-text__label">{{name}}</label>
+  <span *ngIf="input.invalid && (input.dirty || input.touched)" class="input-text__validation error">
+      <span *ngIf="input.errors.required">
+        Campo requerido
+      </span>
+</span>
+</span>

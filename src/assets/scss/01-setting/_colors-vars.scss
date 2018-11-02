@@ -1,0 +1,174 @@
+//---------------
+// ## Color vars
+//---------------
+
+// $$ Vars
+$white : rgb(255, 255, 255); // #FFF
+$white-smoke : rgb(245, 245, 245); // #F1F1F1
+
+$black : rgb(0, 0, 0); // #000
+$black-transparent: rgba(0, 0, 0, .4);
+
+// Grays
+$gray : rgb(118, 118, 118); // #767676
+$gray-medium : rgb(188, 188, 188); // #BCBCBC
+$gray-dark : rgb(59, 59, 59); // #3B3B3B
+$gray-light : rgb(216, 216, 216); // #D8D8D8
+$gray-text : rgb(84, 84, 84); // #545454
+
+// Blue
+$blue : rgb(0, 175, 240); // #00AFF0
+$blue-deep : rgb(0, 120, 175); // #0078AF
+$blue-dark : rgb(0, 80, 115); // #005073
+$blue-light : rgb(108, 190, 250); // #6CBEFA
+
+// Green
+$green: rgb(115, 190, 70); // #73BE46
+$green-dark: rgb(50, 105, 30); // #32691E
+$green-light: rgb(115, 255, 95); // #73FF5F
+
+// Yellow
+$yellow:         rgb(255, 205, 5); // #FFCD05
+$yellow-dark: rgb(250, 170, 25); // #FAAA19
+$yellow-light:   rgb(255, 230, 0); // #FFE600
+
+// Red
+$red:  rgb(215, 12, 52); // #D70C34
+$red-deep:   $red;
+$red-dark : rgb(150, 0, 50); // #960032
+$red-light: rgb(255, 20, 60); // #FF143C
+
+// Orange
+$orange : rgb(240, 90, 35); // #F05A23
+$orange-dark: rgb(210, 70, 20); // #D24614
+$orange-light: rgb(250, 130, 10); // #FA820A
+
+// Burgundy
+$burgundy:       rgb(128, 0, 50); // #800032
+$burgundy-dark:  rgb(95, 0, 5); // #5F0005
+$burgundy-light: rgb(180, 25, 60); // #B4193C
+
+// Violet
+$violet:         rgb(115, 20, 115); // #731473
+$violet-dark:    rgb(70, 0, 70); // #460046
+$violet-light:   rgb(190, 70, 190); // #BE46BE
+
+// Fuchsia or pink!!
+$fuchsia : rgb(235, 0, 140); // #EB008C
+$fuchsia-deep : rgb(235, 0, 140); // #EB008C
+$fuchsia-dark : rgb(180, 0, 110); // #B4006E
+$fuchsia-light : rgb(240,60,160); // #F03CA0
+
+// Turquoise
+$turquoise : rgb(50, 180, 165); // #32B4A5
+$turquoise-dark : rgb(40, 135, 125); // #28877D
+$turquoise-light : rgb(65, 225, 210); // #41E1D2
+
+// Brown
+$brown : rgb(110, 70, 30); // #6E461E
+$brown-dark : rgb(85, 50, 20); // #553214
+$brown-light : rgb(140, 85, 30); // #8C551E
+
+// Nude
+$nude : rgb(255,205,148); // #FFCD94
+$nude-dark : rgb(210,172,120); // ##D2AC78
+$nude-light : rgb(255,224,190); // 	#ffe0bd
+
+
+//---------------
+// ## Color maps
+//---------------
+
+$color-swatches: (
+    white: (
+        'default' : $white,
+        'smoke' : $white-smoke,
+    ),
+    black: (
+        'default' : $black,
+        'transparent' : $black-transparent,
+    ),
+    // $$ Grays
+    gray: (
+        'default' : $gray,
+        'medium' : $gray-medium,
+        'dark' : $gray-dark,
+        'light' : $gray-light,
+        'text' : $gray-text,
+    ),
+    // $$ Yellow
+    yellow: (
+        'default': $yellow,
+        'dark' : $yellow-dark,
+        'light' : $yellow-light,
+    ),
+    // $$ Orange
+    orange: (
+        'default': $orange,
+        'dark' : $orange-dark,
+        'light' : $orange-light,
+    ),
+    // $$ Green
+    green: (
+        'default': $green,
+        'dark' : $green-dark,
+        'light' : $green-light,
+    ),
+    // $$ Blue
+    blue: (
+        'default': $blue,
+        'deep' : $blue-deep,
+        'dark' : $blue-dark,
+        'light' : $orange-light,
+    ),
+    // $$ Red
+    red: (
+        'default': $red,
+        'deep': $red-deep,
+        'dark' : $red-dark,
+        'light' : $red-light,
+    ),
+    // $$ Burgundy
+    burgundy: (
+        'default': $burgundy,
+        'dark' : $burgundy-dark,
+        'light' : $burgundy-light,
+    ),
+    // $$ Violet
+    violet: (
+        'default': $violet,
+        'dark' : $violet-dark,
+        'light' : $violet-light,
+    ),
+    // $$ Fuchsia
+    fuchsia: (
+        'default': $fuchsia,
+        'deep': $fuchsia-deep,
+        'dark' : $fuchsia-dark,
+        'light' : $fuchsia-light,
+    ),
+    // $$ Turquoise
+    turquoise: (
+        'default': $turquoise,
+        'dark' : $turquoise-dark,
+        'light' : $turquoise-light,
+    ),
+    // $$ Brown
+    brown: (
+        'default': $brown,
+        'dark' : $brown-dark,
+        'light' : $brown-light,
+    ),
+    // $$ Nude
+    nude: (
+        'default': $nude,
+        'dark' : $nude-dark,
+        'light' : $nude-light,
+    )
+);
+
+$white: #FFF;
+$black: #000;
+
+//Usage:
+//background: colors-app(blue, "dark");

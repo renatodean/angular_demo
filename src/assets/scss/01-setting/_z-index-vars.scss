@@ -1,0 +1,48 @@
+//---------------
+// ## z-index vars
+//---------------
+
+$z-index: (
+    // $$ Modal
+    modal:                           999,
+    loader:                          999,
+    context-menu__list:              999,
+    modal__container:                998,
+    confirm-component:               998,
+    modal-app:                       997,
+    popup:                           997,
+    alert:                           996,
+
+    // $$ Main-layout
+    footer:                          90,
+    navbar:                          5,
+    navigation:                      4,
+    header:                          3,
+
+    pagination__select-page--after:  2,
+    pagination__select-page--before: 2,
+    project-intem__controlers:       2,
+
+    input__select--after:            2,
+    input__select--before:           2,
+
+    // $$ Blocks
+    block__number:                   1,
+    view-block__number:              1,
+
+    // $$ Drag
+    btn__handle:                     3,
+
+    // $$ Drop
+    drop__area-btn--close:           3,
+    drop__list:                      1,
+    drop__item-app-input-radio:      1,
+    drop__item__img:                 1,
+
+);
+
+$z-index-modal:     999;
+$z-index-modal-app: 998;
+$z-index-alert:     1;
+$z-index-header:    1;
+

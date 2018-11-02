@@ -1,0 +1,38 @@
+@import "src/assets/scss/helper-class.scss";
+
+.login-component {
+    @include flex-center;
+    height: 100vh;
+    .login {
+        //prefix
+        &__container {
+            @include border-radius(1rem);
+            @include shadow(medium);
+            justify-content: center;
+            padding: 4rem 3rem 2rem 3rem;
+            background: colors-app(white);
+        }
+        &__header {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 3rem;
+        }
+        &__logo {
+            display: flex;
+            width: 18rem;
+            height: auto;
+            img {
+                margin: 0 auto;
+            }
+        }
+        &__form {
+            display: block !important;
+            width: 100%;
+            min-height: 12.5rem;
+        }
+        &__recoverpass {
+            font-size: .9rem;
+            text-align: center;
+        }
+    }
+}

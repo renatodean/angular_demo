@@ -1,0 +1,18 @@
+<!-- Copyright 2017 20** Santillana SA -->
+<article class="alert-component {{type}}"
+         *ngIf="showAlert !== 'none'"
+         role="alertdialog"
+         aria-labelledby="dialogTitle"
+         aria-describedby="dialogDescription">
+    <h1 id="dialogTitle" class="alert__title">{{alertTitle}}</h1>
+    <p id="dialogDescription" class="paragraph-component alert__description">
+        {{alertText}}
+    </p>
+    <button class="btn--close"
+            (click)="showAlert = 'none'"
+            role="button"
+            aria-label="close">
+        <span class="icon" aria-hidden="true">&#10006;</span>
+    </button>
+</article>
+

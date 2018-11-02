@@ -1,0 +1,33 @@
+//---------------
+// ## Layout
+//---------------
+
+// $$ header
+$height-header: 3.5rem;
+
+// $$ Pagination
+$height-pagination: 4rem;
+
+// $$ Footer for: footer--fix
+$height-footer: 5rem; //To change
+
+//---------------
+// ## Utilities-classes vars
+//---------------
+
+//width and height vars to generate classes in percentage of 5 in 5 to 100
+// $$ width
+$percentage-w : 5; // salto de porcentaje de n en n
+$percentage-w-end : 20; // numero de reglas a generar * 10
+
+// $$ height
+$percentage-h : 5; // salto de porcentaje de n en n
+$percentage-h-end : 20; // numero de reglas a generar * 10
+
+// $$ Border default
+
+$border-default : 1px solid #{colors-app(gray, 'medium')};
+
+//---------------
+// ## Mixins vars
+//---------------

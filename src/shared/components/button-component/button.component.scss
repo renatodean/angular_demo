@@ -1,0 +1,79 @@
+@import "src/assets/scss/helper-class.scss";
+.btn-component {
+    @include flex-center;
+    @include border-radius(.25rem);
+    font-size: .9rem;
+    font-family: $font-family-secondary;
+    text-transform: uppercase;
+    padding: .75rem 1rem;
+    border: 1px solid  colors-app(blue, "deep");
+    color: colors-app(white);
+    background: colors-app(blue, "deep");
+    transition: all .3s ease;
+    &:hover {
+        border: 1px solid colors-app(blue, "dark");
+        background: colors-app(blue, "dark");
+    }
+    &:disabled {
+        color: colors-app(gray, 'text') !important;
+        border: 1px solid colors-app(gray, 'medium') !important;
+        background: colors-app(gray, 'medium') !important;
+        cursor: default;
+        pointer-events: none;
+    }
+    &.btn {
+        //prefix
+        &--default {
+        }
+        &--search {
+            padding: 0 1rem;
+            .btn-component__text {
+            }
+        }
+        &--main {
+            padding: .75rem 2.5rem;
+        }
+        &--accept {
+            color: colors-app(white);
+            border: 1px solid colors-app(green);
+            background: colors-app(green);
+            transition: all .3s ease;
+            &:hover {
+                border: 1px solid colors-app(green, 'dark');
+                background: colors-app(green, "dark");
+            }
+        }
+        &--cancel {
+            color: colors-app(white);
+            border: 1px solid colors-app(fuchsia);
+            background: colors-app(fuchsia);
+            transition: all .3s ease;
+            &:hover {
+                border: 1px solid colors-app(fuchsia, 'dark');
+                background: colors-app(fuchsia, 'dark');
+            }
+        }
+        &--ghost {
+            color: colors-app(gray, 'text');
+            border: 1px solid colors-app(gray, 'text');
+            background: colors-app(white);
+            transition: all .3s ease;
+            &:hover {
+                color: colors-app(white);
+                background: colors-app(gray, 'text');
+            }
+        }
+        &--disabled {
+            color: colors-app(gray, 'text');
+            border: 1px solid colors-app(gray, 'medium');
+            background: colors-app(gray, 'medium');
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+    .wide {
+        padding: .75rem 2.5rem;
+    }
+}
+
+

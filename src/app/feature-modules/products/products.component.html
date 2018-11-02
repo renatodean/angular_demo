@@ -1,0 +1,14 @@
+<div class="products-component-container">
+    <h3 class="title">Los productos disponibles son los siguientes</h3>
+    <div class="list">
+        <div class="item" (click)="navigateToDetail(product.id)" *ngFor="let product of products; let i = index">
+            <div class="item__name">
+                {{ i + 1 }}- Producto: {{ product.name }}
+            </div>
+            <div class="item__stock">
+                Stock: {{ product.stock }}
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
