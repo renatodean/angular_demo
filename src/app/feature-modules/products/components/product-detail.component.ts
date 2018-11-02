@@ -11,7 +11,7 @@ import { Product } from 'shared/models/product.model';
 export class ProductDetailComponent implements OnInit {
 
   idProduct: number;
-  product: Product;
+  product: Product = new Product();
 
   constructor(private productService: ProductService) { }
 

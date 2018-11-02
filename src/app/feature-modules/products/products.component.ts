@@ -17,7 +17,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-    products: Product[];
+    products: Product[] = new Array<Product>();
 
     constructor(private productService: ProductService,
                 private router: Router,

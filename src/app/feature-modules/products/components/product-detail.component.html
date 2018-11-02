@@ -1,7 +1,12 @@
 <div class="product-detail-component">
-  <h3>Detalle de producto de {{ product.name }}</h3>
+  <h3>{{ product.name }}</h3>
+  <h4>Detalle de producto:<br>{{ product.detalle }}</h4>
+  <div *ngIf="product.importada">
+    Este producto es importado - Origen: {{ product.origen }}
+  </div>
+  <div *ngIf="!product.importada">Este producto Se fabrico en Argentina</div>
   <div>
-    Tenemos un stock disponible de {{ product.stock }}
+    Tenemos un stock disponible de {{ product.stock }} unidades
   </div>
   <button (click)="disminuirStock()">Comprar</button>
   <button>Cerrar</button>

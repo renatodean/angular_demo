@@ -2,9 +2,15 @@ export class Product {
   id: number;
   name: string;
   stock: number;
-  constructor(id: number, name: string, stock: number) {
-    this.id = id;
-    this.name = name;
-    this.stock = stock;
+  detalle: string;
+  importada: boolean;
+  origen: string;
+  constructor() {
+    this.id = undefined;
+    this.name = undefined;
+    this.stock = undefined;
+    this.detalle = undefined;
+    this.importada = undefined;
+    this.origen = undefined;
   }
 }
